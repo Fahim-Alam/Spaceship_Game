@@ -1,5 +1,8 @@
 import pygame
+import sys
 import os
+
+pygame.init()
 pygame.font.init()
 
 WIDTH, HEIGHT = 900, 500
@@ -102,8 +105,6 @@ def display_winner(text):
     pygame.time.delay(3000)
 
 def main():
-    running = True
-
     red = pygame.Rect(WIDTH - 40, HEIGHT // 2, SPACESHIP_WIDTH, SPACESHIP_HEIGHT)
     x_wing = pygame.Rect(0, HEIGHT // 2, SPACESHIP_WIDTH, SPACESHIP_HEIGHT)
 
@@ -114,12 +115,11 @@ def main():
 
     winner_text = ''
 
-    while running:
+    while True:
         clock.tick(FPS)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                running = False
-                pygame.quit()
+                sys.exit()
             
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LCTRL:
@@ -144,7 +144,7 @@ def main():
 
             if winner_text != '':
                 display_winner(winner_text)
-                pygame.quit()
+                sys.exit()
 
         keys = pygame.key.get_pressed()
         x_wing_key_controls(keys, x_wing)
@@ -153,8 +153,6 @@ def main():
         window_display(x_wing, red, x_wing_health, red_health)
 
         pygame.display.update()
-
-    pygame.quit()
 
 if __name__ == '__main__':
     main()
