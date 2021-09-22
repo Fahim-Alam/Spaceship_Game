@@ -3,4 +3,4 @@
 #### To make the X-Wing shoot a bullet, use the left Ctrl key. To make the Tie Fighter shoot a bullet, use the right Ctrl key.
 
 
-This is a game written in Pygame, which allows two players to play at once!
+This is a game written in Pygame, and it allows two players to play at once!
